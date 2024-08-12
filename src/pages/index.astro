@@ -1,0 +1,195 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+
+import heroImage from "@images/heroImage.svg";
+import logo from "@images/Logo_Game25_New_Colors.svg";
+import Card from "@components/Card.astro";
+import Sponsors from "@components/Sponsors.astro";
+
+import LOL from "@images/lol.png";
+
+import Wavenet from "@images/sponsors/wavenet.png";
+import Weloveat from "@images/sponsors/weloveat.png";
+import SopraSteria from "@images/sponsors/sopra-steria.png";
+import YouFM from "@images/sponsors/youfm.png";
+import Walga from "@images/sponsors/walga.png";
+import Noctua from "@images/sponsors/noctua.png";
+import JustOneByte from "@images/sponsors/j1b.png";
+import ORE from "@images/sponsors/ore.png";
+import RomeoPizza from "@images/sponsors/romeopizza.png";
+
+const tournois = [
+  {
+    name: "League of Legends",
+    image: LOL,
+    description:
+      "Une draft en 5v5 à jusqu'à 16 équipes. Venez montrer vos talents sur la faille de l'invocateur !",
+  },
+  {
+    name: "???",
+    description: "...",
+  },
+  {
+    name: "???",
+    description: "...",
+  },
+  {
+    name: "???",
+    description: "...",
+  },
+];
+
+const sponsors = [
+  {
+    name: "Wavenet",
+    url: "https://wavenet.be/",
+    image: Wavenet,
+  },
+  {
+    name: "Weloveat",
+    url: "https://weloveat.be/",
+    image: Weloveat,
+  },
+  {
+    name: "Sopra Steria",
+    url: "https://soprasteria.com/",
+    image: SopraSteria,
+  },
+  {
+    name: "YouFM",
+    url: "https://youfm.be/",
+    image: YouFM,
+  },
+  {
+    name: "Walga",
+    url: "https://www.walga.be/",
+    image: Walga,
+  },
+  {
+    name: "Noctua",
+    url: "https://noctua.at/fr/",
+    image: Noctua,
+  },
+  {
+    name: "Just One Byte",
+    url: "https://j1b.be/",
+    image: JustOneByte,
+  },
+  {
+    name: "ORE",
+    url: "https://www.facebook.com/ORE.UMONS/",
+    image: ORE,
+  },
+  {
+    name: "Romeo pizza",
+    url: "https://romeopizza.be/",
+    image: RomeoPizza,
+  },
+];
+---
+
+<Layout title="Accueil">
+  <main>
+    <section class="bg-gradient-to-br from-indigo-950 to-indigo-900 text-white">
+      <div
+        class="mx-auto grid p-4 lg:container sm:grid-cols-[1.2fr_minmax(0,1fr)]"
+      >
+        <div class="flex items-center py-6 text-lg xl:text-xl">
+          <div>
+            <h1
+              class="pb-3 align-text-top text-4xl font-semibold xl:pb-4 xl:text-5xl"
+            >
+              Une LAN par des étudiants pour des étudiants !
+            </h1>
+            <p class="pb-4 xl:pb-6">Envie d'y participer ?</p>
+            <a
+              href="/inscription"
+              class="inline-block rounded-lg bg-gradient-to-r from-amber-500 to-orange-500 px-4 py-2 font-semibold text-white transition duration-150 hover:bg-blue-50 hover:text-indigo-950"
+            >
+              Inscris-toi !
+            </a>
+          </div>
+        </div>
+        <Image
+          class="h-full w-full object-fill"
+          src={heroImage}
+          alt={"Illustration d'une LAN Party - Game 25"}
+          format="webp"
+        />
+      </div>
+    </section>
+    <section
+      class="mx-auto grid grid-cols-[1fr_auto] items-center gap-4 px-4 py-10 lg:container"
+    >
+      <div class="space-y-1">
+        <h2 class="pb-2 text-4xl font-semibold">Le GAME 25</h2>
+        <p class="">
+          Cette année encore, le Cercle Magellan remet le couvert et a le
+          plaisir de vous annoncer la 25ème édition de sa LAN party, le GAME !
+        </p>
+        <p class="">
+          Le GAME est une LAN party organisée par le Cercle Magellan, le cercle
+          étudiant de la Faculté Polytechnique de Mons. Cet événement est ouvert
+          à tous ! Que vous soyez étudiant ou non, vous êtes les bienvenus pour
+          participer !
+        </p>
+        <p class="">
+          Cetta annéee le GAME se déroulera du <strong
+            >vendredi 21 mars 2025 à 19h au dimanche 23 mars 2024 à 16h</strong
+          >.
+        </p>
+        <p class="">
+          Pour plus d'informations, rendez-vous sur la page{" "}
+          <a
+            href="/informations"
+            class="underline duration-150 hover:translate-x-2 hover:opacity-90"
+          >
+            Informations</a
+          >
+          .
+        </p>
+      </div>
+      <Image
+        class="max-w-64"
+        src={logo}
+        alt="Game 25"
+        quality={30}
+        format="webp"
+      />
+    </section>
+    <section class="bg-gradient-to-br from-indigo-950 to-indigo-900 text-white">
+      <div class="mx-auto px-4 py-10 lg:container">
+        <h2 id="tournois" class="pb-4 text-4xl font-semibold">
+          À vous de jouer !
+        </h2>
+        <div class="grid items-stretch gap-4 sm:grid-cols-2">
+          {
+            tournois.map((tournoi) => (
+              <Card
+                title={tournoi.name}
+                image={tournoi.image}
+                description={tournoi.description}
+                link="/tournois"
+              />
+            ))
+          }
+        </div>
+      </div>
+    </section>
+    <section class="py-10">
+      <div
+        class="mx-auto flex flex-col items-center justify-center gap-6 px-4 pb-6 lg:container"
+      >
+        <h2 id="sponsors" class="text-4xl font-semibold">
+          Merci à nos sponsors !
+        </h2>
+        <a
+          class="inline-block rounded-lg bg-gradient-to-r from-amber-500 to-orange-500 px-4 py-2 font-semibold text-white transition duration-150 hover:bg-blue-50 hover:text-indigo-950"
+          href="/devenir-sponsor">Devenir sponsor</a
+        >
+      </div>
+      <!-- <Sponsors sponsors={sponsors} /> -->
+    </section>
+  </main>
+</Layout>

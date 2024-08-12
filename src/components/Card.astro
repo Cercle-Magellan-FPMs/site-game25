@@ -1,0 +1,46 @@
+---
+import { Image } from "astro:assets";
+import Unknown_Image from "@images/unknown.svg";
+
+interface Props {
+  title: string;
+  description: string;
+  image?: ImageMetadata | undefined;
+  link: string;
+}
+
+const { title, description, image, link } = Astro.props;
+---
+
+<div class="rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 p-1">
+  <div
+    class="flex h-full flex-col justify-between gap-4 rounded-lg bg-indigo-950 p-4 duration-150"
+  >
+    <Image
+      class="h-48 w-full rounded-lg object-contain"
+      src={image ? image : Unknown_Image}
+      alt={title}
+      format="webp"
+    />
+    <div>
+      <h3 class="pb-2 text-2xl font-semibold">{title}</h3>
+      <p class="text-balance">
+        {description}
+      </p>
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+      <a
+        href={link}
+        class="flex items-center justify-center rounded-lg bg-gradient-to-r from-amber-500 to-orange-500 px-4 py-2 text-center font-semibold text-white transition duration-150 hover:text-indigo-950"
+      >
+        Réserve ta place !
+      </a>
+      <a
+        href={link}
+        class="flex items-center justify-center rounded-lg border-2 border-orange-500 bg-indigo-950 px-4 py-2 text-center font-semibold text-white transition duration-150 hover:bg-opacity-20 hover:text-opacity-80"
+      >
+        Plus d'infos
+      </a>
+    </div>
+  </div>
+</div>

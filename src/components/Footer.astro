@@ -1,0 +1,82 @@
+---
+import Facebook from "@icons/Facebook.astro";
+import Instagram from "@icons/Instagram.astro";
+import Mail from "@icons/Mail.astro";
+
+import { Image } from "astro:assets";
+import logo from "@images/Logo_Game25_Mono.svg";
+---
+
+<footer class="z-10 mt-2 bg-indigo-950 text-white" transition:animate="none">
+  <div
+    class="mx-auto flex flex-col gap-8 px-4 py-8 lg:container md:grid md:grid-cols-2 lg:grid-cols-[repeat(3,_1fr)_auto]"
+  >
+    <div>
+      <h4 class="mb-3 mt-0 font-semibold uppercase">Réseaux sociaux</h4>
+      <ul class="flex flex-col gap-2">
+        <!-- TODO : Update quand l'évent sera sorti 
+         <li>
+          <a
+            class="inline-flex items-center gap-2 underline duration-150 hover:translate-x-2 hover:opacity-80"
+            href="https://www.facebook.com/events/855822622960371"
+          >
+            <span class="size-6 fill-white"><Facebook /></span>
+            Event Facebook Game 25
+          </a>
+        </li> -->
+        <li>
+          <a
+            class="inline-flex items-center gap-2 underline duration-150 hover:translate-x-2 hover:opacity-80"
+            href="https://www.facebook.com/CercleMagellan"
+          >
+            <span class="size-6 fill-white"><Facebook /></span>
+            Cercle Magellan
+          </a>
+        </li>
+        <li>
+          <a
+            class="inline-flex items-center gap-2 underline duration-150 hover:translate-x-2 hover:opacity-80"
+            href="https://www.instagram.com/cercle_magellan_fpms"
+          >
+            <Instagram />
+            Cercle Magellan
+          </a>
+        </li>
+        <li>
+          <a
+            class="inline-flex items-center gap-2 underline duration-150 hover:translate-x-2 hover:opacity-80"
+            href="mailto:fpms.magellan@umons.ac.be"
+          >
+            <Mail />
+            fpms.magellan@umons.ac.be
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="h-[2px] rounded-full bg-white md:hidden"></div>
+    <div>
+      <h4 class="mb-3 mt-0 font-semibold uppercase">Comité Magellan 186</h4>
+      <ul class="flex flex-col gap-2">
+        <li>Hugo Lorenzoni</li>
+        <li>Alexandre Radelet</li>
+        <li>Guillaume Hinnekens</li>
+      </ul>
+    </div>
+    <div class="h-[2px] rounded-full bg-white md:hidden"></div>
+
+    <div>
+      <h4 class="mb-3 mt-0 font-semibold uppercase">© Site développé par</h4>
+      <ul class="flex flex-col gap-2">
+        <li>Hugo Lorenzoni</li>
+      </ul>
+    </div>
+    <div class="h-[2px] rounded-full bg-white md:hidden"></div>
+    <Image
+      class="size-48 justify-self-center"
+      src={logo}
+      alt="Game 25"
+      quality={30}
+      format="webp"
+    />
+  </div>
+</footer>
